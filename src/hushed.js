@@ -1,4 +1,16 @@
 /**
+ * @property NULL
+ * @type {Symbol}
+ */
+export const NULL = Symbol('isNull');
+
+/**
+ * @property UNDEFINED
+ * @type {Symbol}
+ */
+export const UNDEFINED = Symbol('isUndefined');
+
+/**
  * @method guard
  * @param {Object} x
  * @return {Proxy}
