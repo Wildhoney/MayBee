@@ -1,0 +1,27 @@
+{
+  "name": "hushed",
+  "version": "0.1.0",
+  "description": "Safeguard against \"Cannot read property 'x' of undefined\" type errors using Proxy.",
+  "main": "dist/hushed.js",
+  "scripts": {
+    "test": "ava tests/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wildhoney/Hushed.git"
+  },
+  "keywords": [
+    "proxy",
+    "error",
+    "typeerror",
+    "defined",
+    "undefined",
+    "null"
+  ],
+  "author": "Adam Timberlake <adam.timberlake@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wildhoney/Hushed/issues"
+  },
+  "homepage": "https://github.com/Wildhoney/Hushed#readme"
+}
