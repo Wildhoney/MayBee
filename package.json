@@ -4,7 +4,7 @@
   "description": "Safeguard against \"Cannot read property 'x' of undefined\" type errors using Proxy.",
   "main": "dist/hushed.js",
   "scripts": {
-    "test": "ava tests/*.test.js"
+    "build": "sjs -o compiled.js example/muted.js"
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/Wildhoney/Hushed/issues"
   },
-  "homepage": "https://github.com/Wildhoney/Hushed#readme"
+  "homepage": "https://github.com/Wildhoney/Hushed#readme",
+  "dependencies": {
+    "sweet.js": "^0.7.4"
+  }
 }
