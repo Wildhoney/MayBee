@@ -11,11 +11,11 @@ export const NULL = Symbol('isNull');
 export const UNDEFINED = Symbol('isUndefined');
 
 /**
- * @method guard
+ * @method suppress
  * @param {Object} x
  * @return {Proxy}
  */
-export const guard = x => new Proxy(x);
+export const suppress = x => new Proxy(x);
 
 /**
  * @method isNull
