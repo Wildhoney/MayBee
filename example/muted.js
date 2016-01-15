@@ -1,2 +1,4 @@
 const person = {};
-const name = person.names.first?;
+const a = ? person;
+const b = ? person.firstName;
+const c = ? person.names.first;

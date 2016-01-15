@@ -4,7 +4,7 @@
   "description": "Safeguard against \"Cannot read property 'x' of undefined\" type errors using Proxy.",
   "main": "dist/hushed.js",
   "scripts": {
-    "build": "sjs -o compiled.js example/muted.js"
+    "build": "sjs -m src/muted.sjs -o compiled.js example/muted.js --num-expands 5"
   },
   "repository": {
     "type": "git",
