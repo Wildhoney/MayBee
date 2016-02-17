@@ -1,6 +1,6 @@
 {
   "name": "maybee",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Safe chaining of object properties and functions using ES2015 Proxy.",
   "main": "dist/maybee.js",
   "scripts": {
