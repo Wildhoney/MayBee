@@ -2,7 +2,7 @@
 
 <img src="media/logo.png" width="250" />
 
->  Safe chaining of object properties and functions using ES2016 Proxy.
+>  Safe chaining of object properties and functions using ES2015 Proxy.
 
 ![Travis](http://img.shields.io/travis/Wildhoney/MayBee.svg?style=flat-square)
 &nbsp;

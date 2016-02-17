@@ -1,4 +1,4 @@
-import {safeguard, isUndefined, isNull} from '../src/may-bee';
+import {safeguard, isUndefined, isNull} from '../src/maybee';
 
 const TYPE_CAT = Symbol('cat');
 const PERSON_TYPE = Symbol('person');

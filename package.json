@@ -1,7 +1,7 @@
 {
   "name": "maybee",
   "version": "0.1.1",
-  "description": "Safe chaining of object properties and functions using ES2016 Proxy.",
+  "description": "Safe chaining of object properties and functions using ES2015 Proxy.",
   "main": "dist/maybee.js",
   "scripts": {
     "build": "webpack",
@@ -30,10 +30,11 @@
   "homepage": "https://github.com/Wildhoney/MayBee#readme",
   "dependencies": {},
   "devDependencies": {
-    "babel-eslint": "^4.1.1",
+    "babel": "^6.5.2",
+    "babel-core": "^6.5.2",
+    "babel-loader": "^6.2.3",
     "babel-preset-es2015": "^6.5.0",
-    "babel-preset-stage-0": "^6.5.0",
-    "babelify": "^6.4.0",
+    "babelify": "^7.2.0",
     "browserify": "^13.0.0",
     "eslint-config-airbnb": "0.0.8",
     "jasmine-core": "^2.4.1",

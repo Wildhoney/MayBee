@@ -4,8 +4,8 @@ module.exports = function(config) {
         basePath: '',
         frameworks: ['jasmine', 'browserify'],
         files: [
-            'src/may-bee.js',
-            'test/may-bee.test.js'
+            'src/maybee.js',
+            'test/maybee.test.js'
         ],
         reporters: ['spec'],
         port: 9876,
@@ -20,7 +20,7 @@ module.exports = function(config) {
         },
         browserify: {
             debug: true,
-            transform: [["babelify", { stage: 0 }]]
+            transform: [["babelify", { presets: ['es2015'] }]]
         }
     });
 };
