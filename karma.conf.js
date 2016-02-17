@@ -1,0 +1,26 @@
+module.exports = function(config) {
+
+    config.set({
+        basePath: '',
+        frameworks: ['jasmine', 'browserify'],
+        files: [
+            'src/may-bee.js',
+            'test/may-bee.test.js'
+        ],
+        reporters: ['spec'],
+        port: 9876,
+        colors: true,
+        logLevel: config.LOG_INFO,
+        autoWatch: true,
+        browsers: ['Firefox'],
+        singleRun: true,
+        preprocessors: {
+            'src/*.js': ['browserify'],
+            'test/*.js': ['browserify']
+        },
+        browserify: {
+            debug: true,
+            transform: [["babelify", { stage: 0 }]]
+        }
+    });
+};
