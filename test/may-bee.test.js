@@ -46,6 +46,7 @@ it('Should be able to deduce when properties are undefined/null;', () => {
     const model = safeguard(person);
 
     expect(isUndefined(model.location)).toBeTruthy();
+    expect(isUndefined(model.born.in.which.country)).toBeTruthy();
     expect(isNull(model.born)).toBeTruthy();
 
     expect(isUndefined(model.name)).toBeFalsy();
