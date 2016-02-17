@@ -51,5 +51,6 @@ it('Should be able to deduce when properties are undefined/null;', () => {
 
     expect(isUndefined(model.name)).toBeFalsy();
     expect(isNull(model.age)).toBeFalsy();
+    expect(isNull(Object.create(null))).toBeFalsy();
 
 });

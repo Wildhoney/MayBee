@@ -76,19 +76,34 @@ export const safeguard = cursor => {
 };
 
 /**
+ * @method valueOf
+ * @param {String} property
+ * @return {*}
+ */
+const valueOf = property => {
+
+    if (typeof Object(property).valueOf === 'function') {
+        return Object(property).valueOf();
+    }
+
+    return property;
+
+};
+
+/**
  * @method isUndefined
- * @param {Proxy} proxy
+ * @param {*} value
  * @return {Boolean}
  */
-export const isUndefined = proxy => {
-    return proxy.valueOf() === IS_UNDEFINED;
+export const isUndefined = value => {
+    return valueOf(value) === IS_UNDEFINED;
 };
 
 /**
  * @method isNull
- * @param {Proxy} proxy
+ * @param {*} value
  * @return {Boolean}
  */
-export const isNull = proxy => {
-    return proxy.valueOf() === IS_NULL;
+export const isNull = value => {
+    return valueOf(value) === IS_NULL;
 };
