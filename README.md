@@ -16,6 +16,8 @@
 
 ## Getting Started
 
+**Note:** Requires [Proxy support](https://kangax.github.io/compat-table/es6/#test-Proxy).
+
 ```javascript
 import {safeguard, isUndefined, isNull} from 'maybee';
 
@@ -25,3 +27,5 @@ console.log(person.name); // Adam
 console.log(isNull(person.age)) // true
 console.log(isUndefined(person.getNames().firstName)) // true
 ```
+
+See [unit tests](https://github.com/Wildhoney/MayBee/blob/master/test/may-bee.test.js) for further examples &mdash; however considering a primitive isn't returned, then you can continue chaining as required &mdash; this is in anticipation of an eventual value, and therefore primitives are returned when they exist.
