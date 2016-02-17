@@ -26,6 +26,7 @@ const person = safeguard({ name: 'Adam', age: null });
 console.log(person.name); // Adam
 console.log(isNull(person.age)) // true
 console.log(isUndefined(person.getNames().firstName)) // true
+console.log(isUndefined(person.a.long.non.existent.property)) // true
 ```
 
 See [unit tests](https://github.com/Wildhoney/MayBee/blob/master/test/may-bee.test.js) for further examples &mdash; however considering a primitive isn't returned, then you can continue chaining as required &mdash; this is in anticipation of an eventual value, and therefore primitives are returned when they exist.
