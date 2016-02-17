@@ -1,10 +1,17 @@
-# Muted
+# MayBee
 
->  Sweet.js macro extension to safeguard against 'cannot read property' type errors.
+<img src="media/logo.png" width="250" />
 
-## Example
+>  Safe chaining of object properties and functions using ES2016 Proxy.
+
+## Getting Started
 
 ```javascript
-const name = person.names.first?;
-```
+import {safeguard, isUndefined, isNull} from 'maybee';
 
+const person = safeguard({ name: 'Adam', age: null });
+
+console.log(person.name); // Adam
+console.log(isNull(person.age)) // true
+console.log(isUndefined(person.getNames().firstName)) // true
+```
