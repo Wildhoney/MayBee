@@ -1,4 +1,16 @@
 /**
+ * @constant UNDEFINED
+ * @type {Symbol}
+ */
+const UNDEFINED = Symbol('undefined');
+
+/**
+ * @constant NULL
+ * @type {Symbol}
+ */
+const NULL = Symbol('null');
+
+/**
  * @method throwError
  * @param {String} message
  * @return {void}
@@ -19,4 +31,22 @@ export const safeguard = cursor => {
         return void throwError('Cannot safeguard non-objects');
     }
 
+};
+
+/**
+ * @method isUndefined
+ * @param {Proxy} proxy
+ * @return {Boolean}
+ */
+export const isUndefined = proxy => {
+    return proxy.valueOf() === UNDEFINED;
+};
+
+/**
+ * @method isNull
+ * @param {Proxy} proxy
+ * @return {Boolean}
+ */
+export const isNull = proxy => {
+    return proxy.valueOf() === NULL;
 };
