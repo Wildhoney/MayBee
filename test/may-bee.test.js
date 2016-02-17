@@ -1,11 +1,14 @@
 import {safeguard, isUndefined, isNull} from '../src/may-bee';
 
 const TYPE_CAT = Symbol('cat');
+const PERSON_TYPE = Symbol('person');
 
 const person = {
     name: 'Adam',
     age: 30,
     born: null,
+    type: PERSON_TYPE,
+    createdDateTime: new Date(),
     names: {
         getNameAndAge: () => {
             return `Adam is 30 years old`;
@@ -36,6 +39,8 @@ it('Should be able to access properties on the object;', () => {
 
     expect(model.name).toEqual('Adam');
     expect(model.age).toEqual(30);
+    expect(model.type).toEqual(PERSON_TYPE);
+    expect(model.createdDateTime instanceof Date).toBeTruthy();
 
     expect(model.pets[0].name).toEqual('Kipper');
     expect(model.pets[1].name).toEqual('Busters');
