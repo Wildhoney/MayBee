@@ -1,10 +1,11 @@
-import {safeguard} from '../src/may-bee';
+import {safeguard, isUndefined, isNull} from '../src/may-bee';
 
 const TYPE_CAT = Symbol('cat');
 
 const person = {
     name: 'Adam',
     age: 30,
+    born: null,
     pets: [
         { name: 'Kipper', type: TYPE_CAT },
         { name: 'Busters', type: TYPE_CAT },
@@ -37,5 +38,17 @@ it('Should be able to access properties on the object;', () => {
     expect(model.pets[2].type).toEqual(TYPE_CAT);
 
     expect(model.petNames()).toEqual('Kipper, Busters, Miss Kittens');
+
+});
+
+it('Should be able to deduce when properties are undefined/null;', () => {
+
+    const model = safeguard(person);
+
+    expect(isUndefined(model.location)).toBeTruthy();
+    expect(isNull(model.born)).toBeTruthy();
+
+    expect(isUndefined(model.name)).toBeFalsy();
+    expect(isNull(model.age)).toBeFalsy();
 
 });

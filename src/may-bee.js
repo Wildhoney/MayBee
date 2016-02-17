@@ -1,14 +1,14 @@
 /**
- * @constant UNDEFINED
+ * @constant IS_UNDEFINED
  * @type {Symbol}
  */
-const UNDEFINED = Symbol('undefined');
+const IS_UNDEFINED = Symbol('undefined');
 
 /**
- * @constant NULL
+ * @constant IS_NULL
  * @type {Symbol}
  */
-const NULL = Symbol('null');
+const IS_NULL = Symbol('null');
 
 /**
  * @method throwError
@@ -18,6 +18,46 @@ const NULL = Symbol('null');
  */
 const throwError = message => {
     throw new Error(`MayBee: ${message}.`);
+};
+
+/**
+ * @method cursor
+ * @param {Object} cursor
+ * @param {*} defaultValue
+ * @return {Proxy}
+ */
+const wrap = (cursor, defaultValue) => {
+
+    return new Proxy(cursor, {
+
+        /**
+         * @method get
+         * @param {Object} target
+         * @param {String} property
+         * @return {*}
+         */
+        get: (target, property) => {
+
+            switch (property) {
+                case 'valueOf': return () => defaultValue;
+            }
+
+            const value = target[property];
+
+            if (typeof value === 'undefined') {
+                return wrap({}, IS_UNDEFINED);
+            }
+
+            if (value === null) {
+                return wrap({}, IS_NULL);
+            }
+
+            return target[property];
+
+        }
+
+    });
+
 };
 
 /**
@@ -31,19 +71,7 @@ export const safeguard = cursor => {
         return void throwError('Cannot safeguard non-objects');
     }
 
-    return new Proxy(cursor, {
-
-        /**
-         * @method get
-         * @param {Object} target
-         * @param {String} property
-         * @return {*}
-         */
-        get: (target, property) => {
-            return target[property];
-        }
-
-    });
+    return wrap(cursor);
 
 };
 
@@ -53,7 +81,7 @@ export const safeguard = cursor => {
  * @return {Boolean}
  */
 export const isUndefined = proxy => {
-    return proxy.valueOf() === UNDEFINED;
+    return proxy.valueOf() === IS_UNDEFINED;
 };
 
 /**
@@ -62,5 +90,5 @@ export const isUndefined = proxy => {
  * @return {Boolean}
  */
 export const isNull = proxy => {
-    return proxy.valueOf() === NULL;
+    return proxy.valueOf() === IS_NULL;
 };
