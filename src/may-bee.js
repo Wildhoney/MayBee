@@ -44,16 +44,17 @@ const wrap = (cursor, defaultValue) => {
 
             const value = target[property];
 
-            if (typeof value === 'undefined') {
-                return wrap({}, IS_UNDEFINED);
-            }
-
-            if (value === null) {
-                return wrap({}, IS_NULL);
+            switch (value) {
+                case undefined: return wrap(() => {}, IS_UNDEFINED);
+                case null: return wrap(() => {}, IS_NULL);
             }
 
             return target[property];
 
+        },
+
+        apply: () => {
+            return wrap(() => {}, IS_UNDEFINED);
         }
 
     });

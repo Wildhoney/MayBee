@@ -6,6 +6,14 @@ const person = {
     name: 'Adam',
     age: 30,
     born: null,
+    names: {
+        getNameAndAge: () => {
+            return `Adam is 30 years old`;
+        },
+        customNameAndAge(name) {
+            return age => `${name} is ${age} years old`;
+        }
+    },
     pets: [
         { name: 'Kipper', type: TYPE_CAT },
         { name: 'Busters', type: TYPE_CAT },
@@ -38,6 +46,8 @@ it('Should be able to access properties on the object;', () => {
     expect(model.pets[2].type).toEqual(TYPE_CAT);
 
     expect(model.petNames()).toEqual('Kipper, Busters, Miss Kittens');
+    expect(model.names.getNameAndAge()).toEqual('Adam is 30 years old');
+    expect(model.names.customNameAndAge('Maria')(24)).toEqual('Maria is 24 years old');
 
 });
 
@@ -52,5 +62,16 @@ it('Should be able to deduce when properties are undefined/null;', () => {
     expect(isUndefined(model.name)).toBeFalsy();
     expect(isNull(model.age)).toBeFalsy();
     expect(isNull(Object.create(null))).toBeFalsy();
+
+});
+
+it('Should not throw type errors when chaining properties and functions;', () => {
+
+    const model = safeguard(person);
+
+    expect(isUndefined(model.property.does.not.exist)).toBeTruthy();
+    expect(isUndefined(model.function.does.not.exist())).toBeTruthy();
+    expect(isUndefined(model.property().does.not.exist)).toBeTruthy();
+    expect(isUndefined(model.function().does().not().exist())).toBeTruthy();
 
 });
