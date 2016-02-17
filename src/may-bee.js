@@ -21,7 +21,7 @@ const throwError = message => {
 };
 
 /**
- * @method safeguard
+ * @method guard
  * @param {Object} cursor
  * @return {Proxy}
  */
@@ -30,6 +30,20 @@ export const safeguard = cursor => {
     if (typeof cursor !== 'object') {
         return void throwError('Cannot safeguard non-objects');
     }
+
+    return new Proxy(cursor, {
+
+        /**
+         * @method get
+         * @param {Object} target
+         * @param {String} property
+         * @return {*}
+         */
+        get: (target, property) => {
+            return target[property];
+        }
+
+    });
 
 };
 
