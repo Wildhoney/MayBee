@@ -34,12 +34,13 @@ const wrap = (cursor, defaultValue) => {
          * @method get
          * @param {Object} target
          * @param {String} property
-         * @return {*}
+         * @return {Proxy|*}
          */
         get: (target, property) => {
 
             switch (property) {
                 case 'valueOf': return () => defaultValue;
+                // case Symbol.toPrimitive: return () => 'x';
             }
 
             const value = target[property];
@@ -53,9 +54,15 @@ const wrap = (cursor, defaultValue) => {
 
         },
 
+        /**
+         * @method apply
+         * @return {Proxy}
+         */
         apply: () => {
             return wrap(() => {}, IS_UNDEFINED);
-        }
+        },
+
+        [Symbol.toPrimitive]: () => 'x'
 
     });
 
@@ -89,6 +96,14 @@ const valueOf = property => {
 
     return property;
 
+};
+
+/**
+ * @method isSupported
+ * @return {Boolean}
+ */
+export const isSupported = () => {
+    return 'Proxy' in global;
 };
 
 /**
