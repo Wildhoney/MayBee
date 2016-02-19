@@ -39,8 +39,19 @@ const wrap = (cursor, defaultValue) => {
         get: (target, property) => {
 
             switch (property) {
+
+                /**
+                 * @property valueOf
+                 * @return {Function}
+                 */
                 case 'valueOf': return () => defaultValue;
-                // case Symbol.toPrimitive: return () => 'x';
+
+                /**
+                 * @property Symbol.toPrimitive
+                 * @return {String}
+                 */
+                case Symbol.toPrimitive: return () => '';
+
             }
 
             const value = target[property];
@@ -62,7 +73,11 @@ const wrap = (cursor, defaultValue) => {
             return wrap(() => {}, IS_UNDEFINED);
         },
 
-        [Symbol.toPrimitive]: () => 'x'
+        /**
+         * @property Symbol.toPrimitive
+         * @return {String}
+         */
+        [Symbol.toPrimitive]: () => ''
 
     });
 
