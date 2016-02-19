@@ -2,8 +2,7 @@ require('babel-loader');
 
 module.exports = {
     entry: {
-        maybee: './src/maybee.js',
-        example: './example/js/example.js'
+        maybee: './src/maybee.js'
     },
     output: {
         path: __dirname + '/dist',
