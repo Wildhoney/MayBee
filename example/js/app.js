@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log('');
     console.log('%cLast of all: If you think you have found an issue then please raise an issue', lineStyle);
-    console.log('%con the GitHub page: %chttps://github.com/Wildhoney/Maybee/issues', lineStyle, 'color: #5ba4ef; text-decoration: underline');
+    console.log('%con the GitHub page: %chttps://github.com/Wildhoney/MayBee/issues', lineStyle, 'color: #5ba4ef; text-decoration: underline');
     console.log('');
     console.log('%cHappy tinkering!', headerStyle);
 
