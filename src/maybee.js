@@ -39,19 +39,8 @@ const wrap = (cursor, defaultValue) => {
         get: (target, property) => {
 
             switch (property) {
-
-                /**
-                 * @property valueOf
-                 * @return {Function}
-                 */
                 case 'valueOf': return () => defaultValue;
-
-                /**
-                 * @property Symbol.toPrimitive
-                 * @return {String}
-                 */
                 case Symbol.toPrimitive: return () => '';
-
             }
 
             const value = target[property];
