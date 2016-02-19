@@ -11,6 +11,7 @@ before_script:
 
 script:
   - npm i
+  - npm run example
 
 addons:
   firefox: 44.0
