@@ -48,3 +48,9 @@ console.log(person.name.on.a.known().property);
 This behaviour makes it easier to stick closely with the JavaScript spec &mdash; otherwise `MayBee` would have to introduce a non-standard function for when you wanted the *value* rather than another `Proxy` &mdash; such as `getValue()` &mdash; ugh!
 
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
+
+## Example
+
+![Screenshot](media/screenshot.png)
+
+Try out the [interactive console example on Heroku](http://maybee-app.herokuapp.com/)!
