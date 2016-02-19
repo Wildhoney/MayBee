@@ -48,7 +48,7 @@ module.exports =
 	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
@@ -74,7 +74,7 @@ module.exports =
 	 * @throws {Error}
 	 */
 	var throwError = function throwError(message) {
-	  throw new Error('MayBee: ' + message + '.');
+	    throw new Error('MayBee: ' + message + '.');
 	};
 
 	/**
@@ -85,61 +85,50 @@ module.exports =
 	 */
 	var wrap = function wrap(cursor, defaultValue) {
 
-	  return new Proxy(cursor, _defineProperty({
-
-	    /**
-	     * @method get
-	     * @param {Object} target
-	     * @param {String} property
-	     * @return {Proxy|*}
-	     */
-	    get: function get(target, property) {
-
-	      switch (property) {
+	    return new Proxy(cursor, _defineProperty({
 
 	        /**
-	         * @property valueOf
-	         * @return {Function}
+	         * @method get
+	         * @param {Object} target
+	         * @param {String} property
+	         * @return {Proxy|*}
 	         */
-	        case 'valueOf':
-	          return function () {
-	            return defaultValue;
-	          };
+	        get: function get(target, property) {
+
+	            switch (property) {
+	                case 'valueOf':
+	                    return function () {
+	                        return defaultValue;
+	                    };
+	                case Symbol.toPrimitive:
+	                    return function () {
+	                        return '';
+	                    };
+	            }
+
+	            var value = target[property];
+
+	            switch (value) {
+	                case undefined:
+	                    return wrap(function () {}, IS_UNDEFINED);
+	                case null:
+	                    return wrap(function () {}, IS_NULL);
+	            }
+
+	            return target[property];
+	        },
 
 	        /**
-	         * @property Symbol.toPrimitive
-	         * @return {String}
+	         * @method apply
+	         * @return {Proxy}
 	         */
-	        case Symbol.toPrimitive:
-	          return function () {
-	            return '';
-	          };
+	        apply: function apply() {
+	            return wrap(function () {}, IS_UNDEFINED);
+	        }
 
-	      }
-
-	      var value = target[property];
-
-	      switch (value) {
-	        case undefined:
-	          return wrap(function () {}, IS_UNDEFINED);
-	        case null:
-	          return wrap(function () {}, IS_NULL);
-	      }
-
-	      return target[property];
-	    },
-
-	    /**
-	     * @method apply
-	     * @return {Proxy}
-	     */
-	    apply: function apply() {
-	      return wrap(function () {}, IS_UNDEFINED);
-	    }
-
-	  }, Symbol.toPrimitive, function () {
-	    return '';
-	  }));
+	    }, Symbol.toPrimitive, function () {
+	        return '';
+	    }));
 	};
 
 	/**
@@ -149,11 +138,11 @@ module.exports =
 	 */
 	var safeguard = exports.safeguard = function safeguard(cursor) {
 
-	  if ((typeof cursor === 'undefined' ? 'undefined' : _typeof(cursor)) !== 'object') {
-	    return void throwError('Cannot safeguard non-objects');
-	  }
+	    if ((typeof cursor === 'undefined' ? 'undefined' : _typeof(cursor)) !== 'object') {
+	        return void throwError('Cannot safeguard non-objects');
+	    }
 
-	  return wrap(cursor);
+	    return wrap(cursor);
 	};
 
 	/**
@@ -163,11 +152,11 @@ module.exports =
 	 */
 	var valueOf = function valueOf(property) {
 
-	  if (typeof Object(property).valueOf === 'function') {
-	    return Object(property).valueOf();
-	  }
+	    if (typeof Object(property).valueOf === 'function') {
+	        return Object(property).valueOf();
+	    }
 
-	  return property;
+	    return property;
 	};
 
 	/**
@@ -175,7 +164,7 @@ module.exports =
 	 * @return {Boolean}
 	 */
 	var isSupported = exports.isSupported = function isSupported() {
-	  return 'Proxy' in global;
+	    return 'Proxy' in global;
 	};
 
 	/**
@@ -184,7 +173,7 @@ module.exports =
 	 * @return {Boolean}
 	 */
 	var isUndefined = exports.isUndefined = function isUndefined(value) {
-	  return valueOf(value) === IS_UNDEFINED;
+	    return valueOf(value) === IS_UNDEFINED;
 	};
 
 	/**
@@ -193,7 +182,7 @@ module.exports =
 	 * @return {Boolean}
 	 */
 	var isNull = exports.isNull = function isNull(value) {
-	  return valueOf(value) === IS_NULL;
+	    return valueOf(value) === IS_NULL;
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
