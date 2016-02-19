@@ -35,7 +35,7 @@ See [unit tests](https://github.com/Wildhoney/MayBee/blob/master/test/may-bee.te
 
 Once `MayBee` finds a primitive value in your object, then all of the `Proxy` witchery is stopped from there on in.
 
-For example, given the `person` above, we can extend infinitely on unknown properties/functions, but as soon as a primitive has been reached, then normal JavaScript rules are abided by:
+For example, given the `person` above, we can extend infinitely on `undefined` properties and/or functions, but as soon as a primitive or object is available, then normal JavaScript rules are restored:
 
 ```javascript
 // √
@@ -47,10 +47,12 @@ console.log(person.name.on.a.known().property);
 
 This behaviour makes it easier to stick closely with the JavaScript spec &mdash; otherwise `MayBee` would have to introduce a non-standard function for when you wanted the *value* rather than another `Proxy` &mdash; such as `getValue()` &mdash; ugh!
 
-[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
+It also abides by `MayBee`'s philosophy that `MayBee` is used to safely print values of an expected structure, prior to the expected structure being available.
 
 ## Example
 
+Try out the [interactive console example on Heroku](http://maybee-app.herokuapp.com/)!
+
 ![Screenshot](media/screenshot.png)
 
-Try out the [interactive console example on Heroku](http://maybee-app.herokuapp.com/)!
+[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
