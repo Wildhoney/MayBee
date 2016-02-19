@@ -11,4 +11,12 @@ before_script:
   - sh -e /etc/init.d/xvfb start
 
 addons:
-  firefox: 39.0
+  firefox: 44.0
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: aM/I/hTlb1COg5sPUtZAU0Yj7uJ8s2nOVLTsXGIIes0+T/LwjI2R+Fm/oWCbxrDh38jGDuFcELBteiZwZdRA5yN3/HegnN9N8PBXTVIU5c4KkwGvBUWTisYKfTDDAMRvRWizHaegGrfx5WB+4C50I6emy1RWpyXI6t7sirnFcGR0fMLnIjOI0vahtbocDOChPyZsYle6hr0ZaltMLd26JgQY08HmxQhDTPYt9dlhYYvlFW8ESVAdQTiHKx2I7ZXDAJczbg2ioOODkoQLrgQQQHOkc5AUXLwyxPTeDE+y8qF/laiKfPFIKzYUnEUS/Sp4YFGXUNzZ7GWDqX9yg+KYDqpQiCmk90aLA1v2gFfOJ3PxNEFy1Aq/t97VXp4tUUkaFziB0MrBytbO7HI8jDkhZ0jY7mW/n5qW9g3mlJ/arG/eYavfSvSFmbInqQKn60koQiGoAiNK71ib5Q9dbqGW4XMxu8BtmdEgHLSVVxNnAdsN+jitn+F/JyMREY3VCwlvXzLjDzQsigs6JFz1JttT9dMD7MYO+HJC7K8C5LmbblFPazeB788EwpvDW/X4z23K/Jz9sstADgNq/92a2A6k/btsSmqW/27JFsISRi60ktpydONOH4R9MwIkftfVv0F+PltoMig/kTxpCVfsLzlp8o7c8sREZdfIuc1Khhdo9Zk=
+  app: maybee-app
+  on:
+    repo: Wildhoney/MayBee
