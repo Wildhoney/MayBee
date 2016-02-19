@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('%cso that you can experiment with MayBee to your heart\'s desire!', lineStyle);
     console.log('');
     console.log('%cFor example, you can try writing: %cisUndefined(model.with.a.function().and.a.property)%c.', lineStyle, codeStyle, lineStyle);
-    console.log('%cYou could also experiment with non-properties/functions to the DOM by using our %cwrite %cfunction!', lineStyle, codeStyle, lineStyle);
+    console.log('%cYou could also experiment with non-properties/functions in the DOM by using the %cwrite %cfunction!', lineStyle, codeStyle, lineStyle);
     console.log('%cTry it with: %cwrite(model.with.an.unknown.property) %cand see how it appears in the DOM.', lineStyle, codeStyle, lineStyle);
     console.log('%cAlso don\'t forget to ensure you can still access the model\'s properties: %cwrite(model.animal) %cand %cwrite(model.month.current)%c.', lineStyle, codeStyle, lineStyle, codeStyle, lineStyle);
 
